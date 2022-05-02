@@ -51,111 +51,113 @@ export const constantRoutes = [
       path: 'dashboard',
       name: 'Dashboard',
       component: () => import('@/views/dashboard/index'),
-      meta: { title: 'Dashboard', icon: 'dashboard' }
+      meta: { title: '首页', icon: 'dashboard' }
     }]
   },
 
   {
-    path: '/example',
+    path: '/info',
     component: Layout,
-    redirect: '/example/table',
-    name: 'Example',
-    meta: { title: 'Example', icon: 'el-icon-s-help' },
+    redirect: '/info/shared',
+    name: 'Info',
+    meta: { title: '信息收集管理', icon: 'table' },
     children: [
       {
-        path: 'table',
-        name: 'Table',
-        component: () => import('@/views/table/index'),
-        meta: { title: 'Table', icon: 'table' }
+        path: 'shared',
+        name: 'Shared',
+        component: () => import('@/views/info/shared/index'),
+        meta: { title: '部门共享数据管理'}
       },
       {
-        path: 'tree',
-        name: 'Tree',
-        component: () => import('@/views/tree/index'),
-        meta: { title: 'Tree', icon: 'tree' }
+        path: 'self-report',
+        name: 'SelfReport',
+        component: () => import('@/views/info/selfReport/index'),
+        meta: { title: '自主上报数据管理'},
+        children: [
+          {
+            path: 'accept',
+            name: 'Accept',
+            component: () => import('@/views/info/selfReport/accept/index'),
+            meta: { title: '自主上报信息受理'}
+          },
+          {
+            path: 'reslut',
+            name: 'Reslut',
+            component: () => import('@/views/info/selfReport/reslut/index'),
+            meta: { title: '自主上报信息办结'}
+          }
+        ]
       }
     ]
   },
 
   {
-    path: '/form',
+    path: '/attention',
     component: Layout,
+    meta: { title: '返贫预警管理', icon: 'form' },
     children: [
       {
-        path: 'index',
-        name: 'Form',
-        component: () => import('@/views/form/index'),
-        meta: { title: 'Form', icon: 'form' }
+        path: 'level',
+        name: 'Level',
+        component: () => import('@/views/attention/level/index'),
+        meta: { title: '返贫预警分级管理'}
+      },
+      {
+        path: 'monitor',
+        name: 'Monitor',
+        component: () => import('@/views/attention/monitor/index'),
+        meta: { title: '监测预警信息管理'}
       }
     ]
   },
 
   {
-    path: '/nested',
+    path: '/check',
     component: Layout,
-    redirect: '/nested/menu1',
-    name: 'Nested',
+    redirect: '/check/query',
+    name: 'Check',
     meta: {
-      title: 'Nested',
+      title: '入户核实管理',
       icon: 'nested'
     },
     children: [
       {
-        path: 'menu1',
-        component: () => import('@/views/nested/menu1/index'), // Parent router-view
-        name: 'Menu1',
-        meta: { title: 'Menu1' },
-        children: [
-          {
-            path: 'menu1-1',
-            component: () => import('@/views/nested/menu1/menu1-1'),
-            name: 'Menu1-1',
-            meta: { title: 'Menu1-1' }
-          },
-          {
-            path: 'menu1-2',
-            component: () => import('@/views/nested/menu1/menu1-2'),
-            name: 'Menu1-2',
-            meta: { title: 'Menu1-2' },
-            children: [
-              {
-                path: 'menu1-2-1',
-                component: () => import('@/views/nested/menu1/menu1-2/menu1-2-1'),
-                name: 'Menu1-2-1',
-                meta: { title: 'Menu1-2-1' }
-              },
-              {
-                path: 'menu1-2-2',
-                component: () => import('@/views/nested/menu1/menu1-2/menu1-2-2'),
-                name: 'Menu1-2-2',
-                meta: { title: 'Menu1-2-2' }
-              }
-            ]
-          },
-          {
-            path: 'menu1-3',
-            component: () => import('@/views/nested/menu1/menu1-3'),
-            name: 'Menu1-3',
-            meta: { title: 'Menu1-3' }
-          }
-        ]
+        path: 'query',
+        component: () => import('@/views/check/query/index'), // Parent router-view
+        name: 'Query',
+        meta: { title: '入户核实进度查询' }
       },
       {
-        path: 'menu2',
-        component: () => import('@/views/nested/menu2/index'),
-        name: 'Menu2',
-        meta: { title: 'menu2' }
+        path: 'feedback',
+        component: () => import('@/views/check/feedback/index'),
+        name: 'Feedback',
+        meta: { title: '入户核实反馈管理' }
       }
     ]
   },
 
   {
-    path: 'external-link',
+    path: '/support',
     component: Layout,
+    meta: { title: '易返贫帮扶管理', icon: 'tree' },
     children: [
       {
-        path: 'https://panjiachen.github.io/vue-element-admin-site/#/',
-        meta: { title: 'External Link', icon: 'link' }
+        path: 'query',
+        component: () => import('@/views/support/query/index'),
+        name: 'Query',
+        meta: { title: '帮扶对象信息查询'}
+      },
+      {
+        path: 'manege',
+        component: () => import('@/views/support/manege/index'),
+        name: 'Manege',
+        meta: { title: '帮扶对象信息管理'}
+      },
+      {
+        path: 'solution',
+        component: () => import('@/views/support/solution/index'),
+        name: 'Solution',
+        meta: { title: '行业单位帮扶措施管理'}
       }
     ]
   },
