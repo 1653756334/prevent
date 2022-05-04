@@ -7,17 +7,14 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
 
 export default {
   name: "Dashboard",
-  computed: {
-    ...mapGetters(["name"]),
-  },
 };
 </script>
 
 <style lang="scss" scoped>
+
 .home {
   h1 {
     padding-left: 10px;
@@ -30,4 +27,5 @@ export default {
     border-radius: 30px;
   }
 }
+
 </style>

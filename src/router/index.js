@@ -73,6 +73,7 @@ export const constantRoutes = [
         name: 'SelfReport',
         component: () => import('@/views/info/selfReport/index'),
         meta: { title: '自主上报数据管理'},
+        redirect: '/info/self-report/accept',
         children: [
           {
             path: 'accept',
@@ -140,11 +141,12 @@ export const constantRoutes = [
     path: '/support',
     component: Layout,
     meta: { title: '易返贫帮扶管理', icon: 'tree' },
+    redirect: '/support/query',
     children: [
       {
         path: 'query',
         component: () => import('@/views/support/query/index'),
-        name: 'Query',
+        name: 'SuportQuery',
         meta: { title: '帮扶对象信息查询'}
       },
       {
