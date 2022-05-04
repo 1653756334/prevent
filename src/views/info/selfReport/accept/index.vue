@@ -27,6 +27,7 @@
             :value="item.type"
           />
         </el-select>
+        <el-button type="primary" @click="query">查询</el-button>
       </div>
     </div>
     <!-- 查询结果 -->
@@ -230,7 +231,7 @@ export default {
 
     .dealInfo {
       display: flex;
-      justify-content: space-around;
+      justify-content: space-evenly;
       margin-top: 20px;
       .el-input {
         width: 130px;
