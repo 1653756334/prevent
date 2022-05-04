@@ -2,7 +2,7 @@
 <template>
   <div class="home">
     <h1>“遇贫则鸣”防返贫监测系统</h1>
-    <img src="./4.png" alt="" />
+    <img src="@/assets/images/banner.png" alt="" />
   </div>
 </template>
 
