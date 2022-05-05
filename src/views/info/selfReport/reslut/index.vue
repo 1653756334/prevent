@@ -60,6 +60,7 @@
     </div>
     <!-- 查询结果 -->
     <div class="queryResult">
+      <div :style="{margin: '20px 0', fontSize: '18px'}">结果列表：</div>
       <el-table :data="queryData">
         <el-table-column prop="order" label="序号" width="50" />
         <el-table-column prop="loc" label="所在地" width="250" />
