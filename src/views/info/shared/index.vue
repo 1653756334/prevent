@@ -20,7 +20,7 @@
             <span class="demonstration">所在地：</span>
             <el-cascader
               v-model="cityvalue"
-              :options="citys"
+              :options="citysss"
               placeholder="请选择所在省/市/县/乡"
             ></el-cascader>
           </li>
@@ -71,9 +71,12 @@
       <div class="export">
         <el-button type="primary">导出文件</el-button>
         <div class="page">
-          <span>共 {{searchres.length}} 条记录第 1 / 1 页</span>
-          <el-pagination background layout="prev, pager, next" :total="10" :page-size="100">
-          </el-pagination>
+          <span>
+            <span>共 {{searchres.length}} 条记录第 1 / 1 页</span>
+            <el-pagination background layout="prev, pager, next" :total="10" :page-size="100">
+            </el-pagination>
+          </span>
+          
         </div>
       </div>
     </div>
@@ -81,9 +84,12 @@
 </template>
 
 <script>
+import { regionData } from "element-china-area-data";
+
 export default {
   data() {
     return {
+      citysss: regionData,
       cityvalue: [],
       depvalue: [],
       select: [],
@@ -218,8 +224,8 @@ export default {
 .datashare {
   padding: 20px 10px;
   .headtitle {
-    height: 40px;
-    line-height: 40px;
+    height: 45px;
+    line-height: 45px;
     font-size: 18px;
     border-bottom: 2px solid #ddd;
   }
@@ -227,14 +233,13 @@ export default {
     padding: 25px 0;
     height: 500px;
     .searchType {
-      padding-bottom: 90px;
       border-bottom: 2px solid #ddd;
       ul {
-        float: left;
+        display: flex;
+        align-items: center;
         padding-left: 0;
 
         li {
-          float: left;
           list-style: none;
           margin-right: 20px;
           margin-bottom: 20px;
@@ -255,13 +260,15 @@ export default {
       margin-top: 20px;
       align-items: center;
       .page{
-        display: flex;
         position: absolute;
-        top: 0;
-        left: 400px;
-        align-items: center;
-        margin: 0 auto;
-        margin-right: 600px;
+        display: inline-flex;
+        left: 50%;
+        transform: translateX(-50%);
+        justify-content: flex-end;
+        span{
+          display: flex;
+          align-items: center;
+        }
       }
     }
   }
