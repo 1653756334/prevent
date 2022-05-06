@@ -94,7 +94,7 @@
             :page-sizes="[10]"
             :page-size="pagesize"
             layout="prev, pager, next"
-            pager-count="5"
+            :pager-count="5"
             background
             :total="queryData.length"
           >

@@ -27,7 +27,7 @@
             :value="item.type"
           />
         </el-select>
-        <el-button type="primary" @click="query">查询</el-button>
+        <el-button type="primary">查询</el-button>
       </div>
     </div>
     <!-- 查询结果 -->
@@ -64,7 +64,7 @@
             :page-sizes="[10]"
             :page-size="pagesize"
             layout="prev, pager, next"
-            pager-count="5"
+            :pager-count="5"
             background
             :total="queryData.length"
           >
