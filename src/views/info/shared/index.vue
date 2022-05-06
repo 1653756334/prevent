@@ -19,9 +19,10 @@
           <li>
             <span class="demonstration">所在地：</span>
             <el-cascader
-              v-model="cityvalue"
+              v-model="selectedOptions"
               :options="citysss"
-              placeholder="请选择所在省/市/县/乡"
+              placeholder="请选择所在省/市/县/乡" 
+              @change="cityChange"
             ></el-cascader>
           </li>
           <li>
@@ -84,13 +85,13 @@
 </template>
 
 <script>
-import { regionData } from "element-china-area-data";
+import { regionData, CodeToText } from "element-china-area-data";
 
 export default {
   data() {
     return {
+      selectedOptions: [],
       citysss: regionData,
-      cityvalue: [],
       depvalue: [],
       select: [],
       citys: [
@@ -216,7 +217,15 @@ export default {
       ],
     };
   },
-  methods: {},
+  methods: {
+    cityChange() {
+      var loc = "";
+      for (let i = 0; i < this.selectedOptions.length; i++) {
+        loc += CodeToText[this.selectedOptions[i]];
+      }
+      console.log(loc);
+    },
+  },
 };
 </script>
 
