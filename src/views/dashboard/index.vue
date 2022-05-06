@@ -21,7 +21,7 @@ export default {
     user-select: none;
   }
   img {
-    width: 1300px;
+    width: 100%;
     height: auto;
     margin: 0 auto;
     border-radius: 30px;
