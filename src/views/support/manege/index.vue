@@ -225,7 +225,7 @@ export default {
     }
 
     .dealInfo {
-      display: flex;
+      display: flex;   
       // justify-content: start;
       margin-top: 20px;
       .el-button {

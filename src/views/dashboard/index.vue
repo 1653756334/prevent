@@ -20,6 +20,7 @@ export default {
     padding-left: 10px;
     user-select: none;
   }
+
   img {
     width: 100%;
     height: auto;
